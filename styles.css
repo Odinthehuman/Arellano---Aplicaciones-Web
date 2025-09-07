@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #22d3ee;
+}
+
+ul.team {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+ul.team li {
+  margin: 15px 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #1e293b;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+
+ul.team li:hover {
+  background: #22d3ee;
+  color: #0f172a;
+  font-weight: bold;
+}
+
+/* Ocultar la imagen por defecto */
+ul.team li img {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 110%;
+  transform: translateY(-50%);
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+/* Mostrar la foto al pasar el cursor */
+ul.team li:hover img {
+  display: block;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareita  </title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Contenedor de Login -->
+  <div id="loginContainer">
+    <h1>Iniciar esión</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <!-- Contenedor Bienvenida + Equipo -->
+  <div id="welcomeContainer" style="display:none;">
+    <h2 id="welcomeMessage"></h2>
+    <button id="logoutBtn">Cerrar sesión</button>
+
+    <h3>Integrantes del equipo de Aplicaciones Web</h3>
+    <ul class="team">
+      <li>
+        Corona Mira Nayeli
+        <img src="https://picsum.photos/seed/ana/1200/800" alt="Corona Mira Nayeli">
+      </li>
+      <li>
+        Hernandez Baez Odin Jonnatan
+        <img src="https://picsum.photos/seed/luis/1200/800" alt="Hernandez Baez Odin Jonnatan">
+      </li>
+      <li>
+        Alvarez Buendía Yordy Alexandro
+        <img src="https://picsum.photos/seed/maria/1200/800" alt="Alvarez Buendía Yordy Alexandro">
+      </li>
+      <li>
+        Huerta Martinez Logan Isai
+        <img src="https://picsum.photos/seed/jon/1200/800" alt="Huerta Martinez Logan Isai">
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const loginContainer = document.getElementById("loginContainer");
+    const welcomeContainer = document.getElementById("welcomeContainer");
+    const welcomeMessage = document.getElementById("welcomeMessage");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Login
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Contraseña fija de prueba
+      if (password === "1234") {
+        welcomeMessage.textContent = `¡Bienvenido, ${username}!`;
+        loginContainer.style.display = "none";
+        welcomeContainer.style.display = "block";
+      } else {
+        alert("Contraseña incorrecta. Intenta de nuevo.");
+      }
+    });
+
+    // Logout
+    logoutBtn.addEventListener("click", () => {
+      welcomeContainer.style.display = "none";
+      loginContainer.style.display = "block";
+      loginForm.reset();
+    });
+  </script>
+</body>
+</html>
